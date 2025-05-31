@@ -13,7 +13,15 @@ public class PersonQueue
     /// <param name="person">The person to add</param>
     public void Enqueue(Person person)
     {
-        _queue.Insert(0, person);
+        //Checking if the queue has a person
+        if (_queue.Count == 0)
+        {
+            _queue.Insert(0, person); //If the queue doesn't have a person, add the person to the first index
+        }
+        else
+        {
+            _queue.Insert(_queue.Count, person);//If the queue has an item, the person is added to the end of the queue.
+        }
     }
 
     public Person Dequeue()
