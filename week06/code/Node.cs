@@ -11,9 +11,10 @@ public class Node
 
     public void Insert(int value)
     {
-        // TODO Start Problem 1
+        //Using the new Contain function to check if the value is in the BST
         if (Contains(value) == true)
-        {
+        {//If the value is found, the new value will not be added.
+         //This is because the value will not be unique
             return;
         }
         if (value < Data)
@@ -36,13 +37,15 @@ public class Node
 
     public bool Contains(int value)
     {
-        // TODO Start Problem 2
+        // Checking if the value is inside the Binary Search Tree
         if (Data == value)
         {
+            //return true if the value is inside the BST
             return true;
         }
         if (value < Data)
         {
+            //Checking the Left Values with recursion
             if (Left is not null)
             {
                 return Left.Contains(value);
@@ -50,6 +53,7 @@ public class Node
         }
         else
         {
+            //Checking the Right Values with recursion
             if (Right is not null)
             {
                 return Right.Contains(value);
@@ -60,18 +64,19 @@ public class Node
 
     public int GetHeight()
     {
-        // TODO Start Problem 4
         int leftHeight = 0;
         int rightHeight = 0;
         if (Left is not null)
         {
+            //If a value in Left is found, the leftHeight will increase by 1
             leftHeight = +Left.GetHeight();
         }
         if (Right is not null)
         {
+            //If a value in Right is found, the rightHeight will increase by 1
             rightHeight = +Right.GetHeight();
         }
-
-        return 1 + Math.Max(rightHeight, leftHeight); // Replace this line with the correct return statement(s)
+        //Returning the Max Height
+        return 1 + Math.Max(rightHeight, leftHeight);
     }
 }
